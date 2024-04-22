@@ -1,0 +1,26 @@
+<div class="searchBar">
+    <div class="container">
+        <form action="/search" class="search_form" role="search" method="post">
+            <input type="search" aria-label="search" id="searchInput" name="searchTerm" placeholder="search the blog..." />
+            <button type="submit">Search</button>
+        </form>
+        <div id="searchClose"> close</div>
+    </div>
+</div>
+
+<div>
+    <% if (locals.title) { %>
+        <p>Search term: <%= locals.title %></p>
+    <% } %>
+
+    <% if (data && data.length > 0) { %>
+        <h2>Search Results</h2>
+        <ul>
+            <% data.forEach(post => { %>
+                <li><%= post.title %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No results found.</p>
+    <% } %>
+</div>

@@ -1,0 +1,35 @@
+<div class="author">
+    <h1 class="author_heading">Hi, I am Afe Ayo.</h1>
+    <p class="author_body">I am a developer</p>
+</div>
+<img src="/img/pexels-olia-danilevich-4974912.jpg" alt="person looking out through window" class="hero-image"
+    width="981" height="528">
+
+<section class="articles">
+    <h2 class="articles_heading">Latest posts</h2>
+
+    <ul class="articles-ul">
+        <% data.forEach(Post=> { %>
+            <li>
+                <a href="/post/<%= Post._id %>">
+                    <span>
+                        <%= Post.title %>
+                    </span>
+                    <span class="articles_list_date">
+                        <%= Post.createdAt.toDateString() %>
+                    </span>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+
+    <div class="pagination">
+        <% if (page> 1) { %>
+            <a href="?page=<%= page - 1 %>" class="prev">&lt; Previous</a>
+            <% } %>
+
+                <% if (page < totalPages) { %>
+                    <a href="?page=<%= page + 1 %>" class="next">Next &gt;</a>
+                    <% } %>
+    </div>
+</section>
